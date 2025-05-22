@@ -1,0 +1,247 @@
+.App {
+  text-align: center;
+}
+
+/* Remove unused styles */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom styles for EmailClassifier */
+.email-classifier-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #4c1d95, #2d2c7d, #1e40af);
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-classifier-card {
+  max-width: 64rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.5s ease;
+}
+
+.email-classifier-card:hover {
+  transform: scale(1.05);
+}
+
+.email-classifier-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: transparent;
+  background: linear-gradient(to right, #facc15, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.email-classifier-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .email-classifier-form {
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+.email-classifier-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  margin-top: 0.75rem;
+}
+
+.email-classifier-input,
+.email-classifier-textarea {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.email-classifier-input:hover,
+.email-classifier-textarea:hover {
+  border-color: #06b6d4;
+}
+
+.email-classifier-input:focus,
+.email-classifier-textarea:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 0 1rem rgba(6, 182, 212, 0.5);
+}
+
+.email-classifier-input::placeholder,
+.email-classifier-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.email-classifier-textarea {
+  resize: none;
+  height: 12rem;
+}
+
+.email-classifier-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.email-classifier-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 9999px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, #06b6d4, #ec4899);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.email-classifier-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #0891b2, #db2777);
+}
+
+.email-classifier-button:disabled {
+  background: linear-gradient(to right, #9ca3af, #6b7280);
+  cursor: not-allowed;
+}
+
+.email-classifier-button-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #facc15, #ec4899);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.email-classifier-button:hover .email-classifier-button-overlay {
+  opacity: 0.2;
+}
+
+.email-classifier-result {
+  margin-top: 2.5rem;
+  background: linear-gradient(to right, rgba(22, 163, 74, 0.2), rgba(20, 184, 166, 0.2));
+  border: 1px solid rgba(74, 222, 128, 0.5);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.email-classifier-result-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #bbf7d0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.email-classifier-result-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #d1fae5;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-yellow { color: #facc15; }
+.icon-cyan { color: #06b6d4; }
+.icon-pink { color: #ec4899; }
+.icon-green { color: #4ade80; }
+.icon-white { color: white; }
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
