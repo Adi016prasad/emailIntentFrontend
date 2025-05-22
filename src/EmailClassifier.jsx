@@ -15,7 +15,7 @@ export default function EmailClassifier() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('/api/classify', {
+      const response = await fetch('https://emailintentbackend.onrender.com/api/classify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
